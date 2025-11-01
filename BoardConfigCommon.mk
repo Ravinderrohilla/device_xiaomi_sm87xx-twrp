@@ -192,3 +192,16 @@ ifneq ($(wildcard bootable/recovery/installer/.),)
 endif
 # end local build flags
 #
+# Recovery
+TARGET_OTA_ASSERT_DEVICE := onyx
+
+# TWRP specific build flags
+TW_FRAMERATE := 120
+
+# Vibrator
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FQNAME := "IVibrator/vibratorfeature"
+
+TARGET_RECOVERY_DEVICE_MODULES += libexpat
+RECOVERY_LIBRARY_SOURCE_FILES += $(TARGET_OUT_SHARED_LIBRARIES)/libexpat.so
